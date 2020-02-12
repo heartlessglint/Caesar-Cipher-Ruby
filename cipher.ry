@@ -1,0 +1,39 @@
+#normal alphabet=97-122
+#capital alphabet=65-90
+
+
+
+x = ("abcdez     ABCDEZ").split("")
+def caesar_cipher(string, shift)
+  split_string=(string).split("")
+  shift=shift.to_i
+  split_string.each do |letter| 
+    letter=letter.ord
+    if (97..122).member?(letter)
+      letter+=shift
+        if letter>122
+        letter=letter-26
+        print letter.chr
+      else
+       print letter.chr
+      end
+    elsif (65..90).member?(letter)
+        letter+=shift
+        if letter>90
+        letter=letter-26
+        print letter.chr
+      else
+        print letter.chr
+      end
+    else
+      print letter.chr
+    end
+  end
+end
+
+print "What do you want to change? "
+string=gets.chomp!
+print "How many letters would you like to shift? "
+shift=gets.chomp!
+caesar_cipher(string, shift)
+
